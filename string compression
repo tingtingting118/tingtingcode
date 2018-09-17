@@ -1,0 +1,31 @@
+class Solution:
+    """
+    @param originalString: a string
+    @return: a compressed string
+    """
+    def compress(self, originalString):
+        # write your code here
+        l = len(originalString)
+        s = ""
+        
+        if l == 0:
+            return ""
+        if l == 1:
+            return originalString + str(1)
+        
+        starting = originalString[0]
+        count = 1
+        i = 1 
+        
+        while i < l:
+            if originalString[i] == originalString[i-1]:
+                count += 1
+            else:
+                s += originalString[i-1] + str(count)
+                count = 1 
+            i += 1
+        
+        s =  s + originalString[i-1] + str(count) #last letter 
+        
+        return s
+        
