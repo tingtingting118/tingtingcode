@@ -1,0 +1,8 @@
+select 
+case when A+B>C and B+C>A and A+C>B then 
+(case when A=B and B=C then 'Equilateral'
+      when (A=B and A<>C) or (B=C and B<>A) or (A=C and C<>B)  then 'Isosceles' 
+      else 'Scalene' end )
+else 'Not A Triangle' End 
+from Triangles
+
